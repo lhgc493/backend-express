@@ -1,0 +1,9 @@
+
+express
+
+- se crea un work space y se ejecutan los siguientes comandos (https://expressjs.com/es/starter/installing.html)
+-------
+
+- descargar el nodemon para no estar apagando y prendiendo el servidor (https://www.npmjs.com/package/nodemon)
+  ejecutando npm install --save-dev 
+- para que funcione se modifica el script en package json ( "start": "nodemon app.js",)
