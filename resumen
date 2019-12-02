@@ -1,5 +1,14 @@
 
-express
+INDICE
+
+LIBRERIAS UTILES 
+EXPRESS
+
+
+---------------------------
+---------------------------
+
+EXPRESS
 
 - se crea un work space y se ejecutan los siguientes comandos (https://expressjs.com/es/starter/installing.html)
 -------
@@ -7,3 +16,23 @@ express
 - descargar el nodemon para no estar apagando y prendiendo el servidor (https://www.npmjs.com/package/nodemon)
   ejecutando npm install --save-dev 
 - para que funcione se modifica el script en package json ( "start": "nodemon app.js",)
+
+- descargar mongo motor de base de datos (https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
+
+- Robo 3t se instala para trabajar con mongodb (https://robomongo.org/download)
+
+POST 
+- para mayor facilidad se usa un lebreria llamada body parser (https://github.com/expressjs/body-parser)
+- se realiza la importacion configuracion en el app.js 
+
+MIDLEWARES
+- funciones que se van a ejecutar siempre (app.use)
+
+LIBRERIAS UTILES 
+bcript encripta contrasenas = (npm install bcryptjs --save / var bcrypt = require('bcryptjs');)
+
+validar campos unicos = (npm install mongoose-unique-validator --save / var uniqueValidator = require('mongoose-unique-validator') )
+
+Body parser para post x-wwww (npm install body-parser --save / var bodyParser = require('body-parser'))
+    *config app.use(bodyParser.urlencoded({ extended: false }))       
+            app.use(bodyParser.json())
