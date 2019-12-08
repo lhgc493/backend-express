@@ -11,20 +11,33 @@ var app = express();
 //Listado de usuarios
 //================================
 app.get('/', (req, res, next) => {
+    var desde = req.query.desde || 0;
+    desde = Number(desde);
 
-    Usuario.find({}, (err, usuarios) => {
-        if (err) {
-            return res.status(500).json({
-                ok: false,
-                mensaje: 'problemas de conexion!',
-                errors: err
+    Usuario.find({}, 'nombre email role')
+        .skip(desde)
+        .limit(5) //para limitar el lsitado a 5 registros
+        .exec(
+            (err, usuarios) => {
+                if (err) {
+                    res.status(500).json({
+                        ok: false,
+                        mensaje: 'Error conexion bd!'
+                    });
+                }
+
+                Usuario.count({}, (err, conteo) => {
+
+                    res.status(200).json({
+                        ok: true,
+                        Usuario: usuarios,
+                        total: conteo
+                    });
+
+                });
+
+
             });
-        }
-        res.status(200).json({
-            ok: true,
-            Usuario: usuarios
-        });
-    });
 
     /* si solo quieres listar algunos atributos exec
        Usuario.find({}, 'nombre email role').exec(

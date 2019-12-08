@@ -24,12 +24,23 @@ mongoose.connection.openUri('mongodb://localhost:27017/proyectoDB', (err, res) =
 // importar rutas
 var appRoutes = require('./routes/app');
 var usuarioRoutes = require('./routes/usuario');
-var loginRoutes = require('./routes/login')
+var loginRoutes = require('./routes/login');
+var hospedajeRoutes = require('./routes/hospedaje');
+var socioRoutes = require('./routes/socio');
+var busquedaRoutes = require('./routes/busqueda');
+var uploadRoutes = require('./routes/upload')
+var imagesRoutes = require('./routes/imagenes');
 
 // rutas
 app.use('/usuario', usuarioRoutes);
+app.use('/hospedaje', hospedajeRoutes);
+app.use('/socio', socioRoutes);
+app.use('/busqueda', busquedaRoutes);
+app.use('/upload', uploadRoutes);
+app.use('/img', imagesRoutes);
 app.use('/login', loginRoutes);
-app.use('/', appRoutes);
+app.use('/', appRoutes); // esta siempre abajo
+
 
 
 
