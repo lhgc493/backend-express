@@ -13,8 +13,8 @@ var usuarioSchema = new Schema({
     email: { type: String, unique: true, required: [true, 'El correo es necesario'] },
     password: { type: String, required: [true, 'El password es necesario'] },
     img: { type: String, required: false },
-    role: { type: String, required: true, default: 'USER_ROLE', enum: rolesValidos } //enum para validar los roles validos
-
+    role: { type: String, required: true, default: 'USER_ROLE', enum: rolesValidos }, //enum para validar los roles validos
+    google: { type: Boolean, default: false }
 });
 usuarioSchema.plugin(uniqueValidator, { message: '{PATH} debe ser unico' }) //{path} es para que valide todos los campos unicos en el modelo
 module.exports = mongoose.model('Usuario', usuarioSchema);
